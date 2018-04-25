@@ -16,14 +16,18 @@
 [[projects]]
   branch = "develop"
   name = "github.com/nmiyake/pkg"
-  packages = ["dirs","errorstringer","gofiles"]
+  packages = [
+    "dirs",
+    "errorstringer",
+    "gofiles"
+  ]
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
 [[projects]]
   branch = "master"
   name = "github.com/palantir/pkg"
   packages = ["cobracli"]
-  revision = "b59de130c1302a3c591efcfb0fd575727f53d0d2"
+  revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -40,8 +44,8 @@
 [[projects]]
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
-  version = "v0.0.1"
+  revision = "a1f051bc3eba734da4772d60e2d677f47cf93ef4"
+  version = "v0.0.2"
 
 [[projects]]
   name = "github.com/spf13/pflag"
@@ -51,19 +55,26 @@
 
 [[projects]]
   name = "github.com/stretchr/testify"
-  packages = ["assert","require"]
+  packages = [
+    "assert",
+    "require"
+  ]
   revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
   version = "v1.2.1"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/tools"
-  packages = ["go/ast/astutil","go/buildutil","go/loader"]
+  packages = [
+    "go/ast/astutil",
+    "go/buildutil",
+    "go/loader"
+  ]
   revision = "059bec968c61383b574810040ba9410712de36c5"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b4607402510796164cad07c4a58f2e73175328ae19f6fbfe79778b89bad1bd17"
+  inputs-digest = "d3d81409be75cee20eb99b7b3d9cea77c471ce3990603ac3b3a07148dd5da688"
   solver-name = "gps-cdcl"
   solver-version = 1
