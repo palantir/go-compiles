@@ -15,13 +15,14 @@
 package cmd
 
 import (
+	"github.com/palantir/pkg/cobracli"
 	"github.com/spf13/cobra"
 
 	"github.com/palantir/go-compiles/compiles"
 )
 
 var (
-	RootCmd = &cobra.Command{
+	rootCmd = &cobra.Command{
 		Use:   "compiles [flags] [packages]",
 		Short: "checks whether packages (including external tests) compiles",
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -29,3 +30,7 @@ var (
 		},
 	}
 )
+
+func Execute() int {
+	return cobracli.ExecuteWithDefaultParams(rootCmd)
+}
