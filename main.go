@@ -17,11 +17,9 @@ package main
 import (
 	"os"
 
-	"github.com/palantir/pkg/cobracli"
-
 	"github.com/palantir/go-compiles/cmd"
 )
 
 func main() {
-	os.Exit(cobracli.ExecuteWithDefaultParams(cmd.RootCmd))
+	os.Exit(cmd.Execute())
 }
