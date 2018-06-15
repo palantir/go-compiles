@@ -19,18 +19,9 @@
   packages = [
     "dirs",
     "errorstringer",
-    "gofiles",
+    "gofiles"
   ]
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
-
-[[projects]]
-  name = "github.com/palantir/go-compiles"
-  packages = [
-    "cmd",
-    "compiles",
-  ]
-  revision = "cf2e50263d701b5900dd113a89c30f7c8ccf4193"
-  version = "v1.1.0"
 
 [[projects]]
   branch = "master"
@@ -66,7 +57,7 @@
   name = "github.com/stretchr/testify"
   packages = [
     "assert",
-    "require",
+    "require"
   ]
   revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
   version = "v1.2.1"
@@ -77,13 +68,13 @@
   packages = [
     "go/ast/astutil",
     "go/buildutil",
-    "go/loader",
+    "go/loader"
   ]
   revision = "059bec968c61383b574810040ba9410712de36c5"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6e10bf5315cc2be031ab1aee12383a196d7cb6d0aed1231db40eae0695597490"
+  inputs-digest = "d3d81409be75cee20eb99b7b3d9cea77c471ce3990603ac3b3a07148dd5da688"
   solver-name = "gps-cdcl"
   solver-version = 1
