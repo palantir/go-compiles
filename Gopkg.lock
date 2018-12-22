@@ -82,15 +82,16 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3bb904aa43844ed7773faff747e121d8ff37c32c552f8c88f107160831d32f59"
+  digest = "1:a99b52ff45e7b215b683682e89a52f6598869684a8917d0a7f8136cb16eab553"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
     "go/buildutil",
+    "go/internal/cgo",
     "go/loader",
   ]
   pruneopts = "UT"
-  revision = "059bec968c61383b574810040ba9410712de36c5"
+  revision = "d00ac6d27372a4273825635281f2dc360d4be563"
 
 [solve-meta]
   analyzer-name = "dep"
