@@ -82,13 +82,19 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a99b52ff45e7b215b683682e89a52f6598869684a8917d0a7f8136cb16eab553"
+  digest = "1:d588bba506a515d2c7743ba6f98062168c3698b2a8cefe5a99e15d9ee8885e40"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
-    "go/buildutil",
+    "go/gcexportdata",
     "go/internal/cgo",
-    "go/loader",
+    "go/internal/gcimporter",
+    "go/internal/packagesdriver",
+    "go/packages",
+    "go/types/typeutil",
+    "internal/fastwalk",
+    "internal/gopathwalk",
+    "internal/semver",
   ]
   pruneopts = "UT"
   revision = "d00ac6d27372a4273825635281f2dc360d4be563"
@@ -104,7 +110,7 @@
     "github.com/spf13/cobra",
     "github.com/stretchr/testify/assert",
     "github.com/stretchr/testify/require",
-    "golang.org/x/tools/go/loader",
+    "golang.org/x/tools/go/packages",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -19,27 +19,29 @@ import (
 	"io"
 
 	"github.com/pkg/errors"
-	"golang.org/x/tools/go/loader"
+	"golang.org/x/tools/go/packages"
 )
 
 // Run runs the "compiles" checks on the provided packages. The provided packages should be specified as relative paths
 // from the current working directory. Dot expansion ("...") is not supported.
 func Run(pkgs []string, w io.Writer) error {
-	cfg := loader.Config{}
-
-	rest, err := cfg.FromArgs(pkgs, true)
+	loadedPkgs, err := packages.Load(&packages.Config{
+		Mode:  packages.LoadAllSyntax,
+		Tests: true,
+	}, pkgs...)
 	if err != nil {
-		return errors.Wrapf(err, "failed to parse packages")
-	}
-	if len(rest) > 0 {
-		return errors.Errorf("failed to parse arguments as packages: %v", rest)
+		return errors.Wrapf(err, "failed to load packages")
 	}
 
-	cfg.TypeChecker.Error = func(e error) {
-		fmt.Fprintln(w, e.Error())
-	}
+	errExists := false
+	packages.Visit(loadedPkgs, nil, func(pkg *packages.Package) {
+		for _, err := range pkg.Errors {
+			fmt.Fprintln(w, err)
+			errExists = true
+		}
+	})
 
-	if _, err := cfg.Load(); err != nil {
+	if errExists {
 		// return blank error if any errors were encountered during load. Load function prints errors to writer
 		// in proper format as they are encountered so no need to create any other output.
 		return fmt.Errorf("")
