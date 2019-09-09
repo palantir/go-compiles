@@ -17,6 +17,7 @@ package compiles
 import (
 	"fmt"
 	"io"
+	"strings"
 
 	"github.com/pkg/errors"
 	"golang.org/x/tools/go/packages"
@@ -35,6 +36,11 @@ func Run(pkgs []string, w io.Writer) error {
 
 	errExists := false
 	packages.Visit(loadedPkgs, nil, func(pkg *packages.Package) {
+		// no need to inspect test main package, as individual test should already cover this.
+		// Related to https://github.com/golang/go/issues/27910.
+		if pkg.Name == "main" && strings.HasSuffix(pkg.ID, ".test") {
+			return
+		}
 		for _, err := range pkg.Errors {
 			_, _ = fmt.Fprintln(w, err)
 			errExists = true

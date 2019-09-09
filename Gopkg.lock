@@ -82,12 +82,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:d588bba506a515d2c7743ba6f98062168c3698b2a8cefe5a99e15d9ee8885e40"
+  digest = "1:220d16eead060183a2309db37a4dec2cf2d749de8bc635d3941546b388d5e2bd"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
     "go/gcexportdata",
-    "go/internal/cgo",
     "go/internal/gcimporter",
     "go/internal/packagesdriver",
     "go/packages",
@@ -97,7 +96,7 @@
     "internal/semver",
   ]
   pruneopts = "UT"
-  revision = "d00ac6d27372a4273825635281f2dc360d4be563"
+  revision = "75be6cdcda0754c33b2469511cc02ea1e7b063fb"
 
 [solve-meta]
   analyzer-name = "dep"
