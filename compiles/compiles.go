@@ -36,7 +36,7 @@ func Run(pkgs []string, w io.Writer) error {
 	errExists := false
 	packages.Visit(loadedPkgs, nil, func(pkg *packages.Package) {
 		for _, err := range pkg.Errors {
-			fmt.Fprintln(w, err)
+			_, _ = fmt.Fprintln(w, err)
 			errExists = true
 		}
 	})
