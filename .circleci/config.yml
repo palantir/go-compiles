@@ -11,14 +11,14 @@ workflows:
   version: 2
   verify-test:
     jobs:
-      - godel/verify:
-          name: verify
-          executor:
-            name: go/golang
-            version: "1.13"
-            <<: *owner-repo
-            module: false
-          mod-cache: false
+#      - godel/verify:
+#          name: verify
+#          executor:
+#            name: go/golang
+#            version: "1.13"
+#            <<: *owner-repo
+#            module: false
+#          mod-cache: false
       - godel/test:
           name: test-go-1.13
           executor:
