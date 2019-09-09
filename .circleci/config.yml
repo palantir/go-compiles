@@ -15,7 +15,15 @@ workflows:
           name: verify
           executor:
             name: go/golang
-            version: "1.12.9"
+            version: "1.13"
+            <<: *owner-repo
+            module: false
+          mod-cache: false
+      - godel/test:
+          name: test-go-1.13
+          executor:
+            name: go/golang
+            version: "1.13"
             <<: *owner-repo
             module: false
           mod-cache: false
@@ -32,14 +40,6 @@ workflows:
           executor:
             name: go/golang
             version: "1.11.13"
-            <<: *owner-repo
-            module: false
-          mod-cache: false
-      - godel/test:
-          name: test-go-1.10
-          executor:
-            name: go/golang
-            version: "1.10.8"
             <<: *owner-repo
             module: false
           mod-cache: false
