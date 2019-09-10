@@ -30,6 +30,17 @@
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
 [[projects]]
+  digest = "1:bc7e38de4e43f05c54496c6293fb1f00f1fd14af9a8097224901c1de098c19cf"
+  name = "github.com/palantir/go-compiles"
+  packages = [
+    "cmd",
+    "compiles",
+  ]
+  pruneopts = "UT"
+  revision = "aa84b861191e50ffa986409001954281c523a1f8"
+  version = "v1.3.0"
+
+[[projects]]
   branch = "master"
   digest = "1:6db686ebf4d62572d52f6c4ee22867f1afba01f741d82a2a4d358fc5d720cc02"
   name = "github.com/palantir/pkg"
@@ -104,6 +115,8 @@
   input-imports = [
     "github.com/nmiyake/pkg/dirs",
     "github.com/nmiyake/pkg/gofiles",
+    "github.com/palantir/go-compiles/cmd",
+    "github.com/palantir/go-compiles/compiles",
     "github.com/palantir/pkg/cobracli",
     "github.com/pkg/errors",
     "github.com/spf13/cobra",
