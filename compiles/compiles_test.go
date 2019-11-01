@@ -32,6 +32,13 @@ import (
 )
 
 func TestCompilesPassCases(t *testing.T) {
+	// set GO111Module to "off" for this test, as it uses old-style vendoring
+	origValue := os.Getenv("GO111MODULE")
+	_ = os.Setenv("GO111MODULE", "off")
+	defer func() {
+		_ = os.Setenv("GO111MODULE", origValue)
+	}()
+
 	tmpDir, cleanup, err := dirs.TempDir(".", "")
 	require.NoError(t, err)
 	defer cleanup()
