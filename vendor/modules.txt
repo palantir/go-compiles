@@ -2,13 +2,15 @@
 github.com/davecgh/go-spew/spew
 # github.com/inconshreveable/mousetrap v1.0.0
 github.com/inconshreveable/mousetrap
-# github.com/nmiyake/pkg v0.0.0-20170627000939-b64318170fde
+# github.com/nmiyake/pkg/dirs v1.0.0
 github.com/nmiyake/pkg/dirs
+# github.com/nmiyake/pkg/errorstringer v1.0.0
 github.com/nmiyake/pkg/errorstringer
+# github.com/nmiyake/pkg/gofiles v1.0.0
 github.com/nmiyake/pkg/gofiles
 # github.com/palantir/pkg v0.0.0-20180424172112-23395ebeee5d
 github.com/palantir/pkg/cobracli
-# github.com/pkg/errors v0.8.0
+# github.com/pkg/errors v0.8.1
 github.com/pkg/errors
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
@@ -16,7 +18,7 @@ github.com/pmezard/go-difflib/difflib
 github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.3
 github.com/spf13/pflag
-# github.com/stretchr/testify v1.2.2
+# github.com/stretchr/testify v1.4.0
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/require
 # golang.org/x/tools v0.0.0-20190909194007-75be6cdcda07
@@ -27,3 +29,5 @@ golang.org/x/tools/go/packages
 golang.org/x/tools/internal/fastwalk
 golang.org/x/tools/internal/gopathwalk
 golang.org/x/tools/internal/semver
+# gopkg.in/yaml.v2 v2.2.2
+gopkg.in/yaml.v2
