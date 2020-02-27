@@ -9,5 +9,5 @@ require (
 	github.com/pkg/errors v0.8.1
 	github.com/spf13/cobra v0.0.5
 	github.com/stretchr/testify v1.4.0
-	golang.org/x/tools v0.0.0-20190909194007-75be6cdcda07
+	golang.org/x/tools v0.0.0-20200226224502-204d844ad48d
 )
