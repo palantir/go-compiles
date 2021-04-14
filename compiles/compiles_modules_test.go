@@ -27,10 +27,9 @@ import (
 
 	"github.com/nmiyake/pkg/dirs"
 	"github.com/nmiyake/pkg/gofiles"
+	"github.com/palantir/go-compiles/compiles"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-
-	"github.com/palantir/go-compiles/compiles"
 )
 
 func TestGoModulesCompilesPassCases(t *testing.T) {
