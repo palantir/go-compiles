@@ -26,7 +26,15 @@ import (
 // Run runs the "compiles" checks on the provided packages. The provided packages should be specified as relative paths
 // from the current working directory. Dot expansion ("...") is not supported.
 func Run(pkgs []string, w io.Writer) error {
+	return RunInDir(pkgs, "", w)
+}
+
+// RunInDir runs the "compiles" checks on the provided packages using the provided directory as the working directory.
+// The provided packages should be specified as relative paths from the working directory. Dot expansion ("...") is not
+// supported.
+func RunInDir(pkgs []string, dir string, w io.Writer) error {
 	loadedPkgs, err := packages.Load(&packages.Config{
+		Dir:   dir,
 		Mode:  packages.LoadAllSyntax,
 		Tests: true,
 	}, pkgs...)
