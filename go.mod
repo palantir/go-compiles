@@ -5,10 +5,10 @@ go 1.17
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
 	github.com/nmiyake/pkg/gofiles v1.2.0
-	github.com/palantir/pkg/cobracli v1.0.1
+	github.com/palantir/pkg/cobracli v1.1.0
 	github.com/pkg/errors v0.8.1
-	github.com/spf13/cobra v1.3.0
-	github.com/stretchr/testify v1.7.0
+	github.com/spf13/cobra v1.4.0
+	github.com/stretchr/testify v1.7.1
 	golang.org/x/tools v0.1.5
 )
 
