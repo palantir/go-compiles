@@ -1,0 +1,558 @@
+go mod operation failed. This may mean that there are legitimate dependency issues with the "go.mod" definition in the repository and the updates performed by the gomod check. This branch can be cloned locally to debug the issue.
+
+Command that caused error:
+./godelw check compiles
+
+Output:
+Running compiles...
+../../../go/go-dists/go1.18.2/src/internal/abi/abi.go:117:19: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/abi/abi.go:126:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/alg.go:293:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/cgo.go:45:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/cgocall.go:392:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/cgocall.go:392:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/cgocall.go:631:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/runtime2.go:971:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/time.go:31:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/time.go:32:9: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/debugcall.go:19:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/debuglog.go:269:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/error.go:213:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/error.go:256:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/iface.go:299:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/iface.go:300:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/iface.go:301:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/iface.go:302:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/iface.go:303:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/runtime2.go:212:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/mbitmap.go:1955:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/mbitmap.go:1968:19: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/mfinal.go:326:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/mfinal.go:326:38: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/mfinal.go:467:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/netpoll.go:601:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/netpoll.go:605:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/netpoll.go:609:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/netpoll.go:642:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/netpoll.go:650:10: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/panic.go:758:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/panic.go:960:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/plugin.go:10:60: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/time.go:235:52: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/time.go:235:71: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/time.go:242:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/time.go:424:52: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/time.go:424:71: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/malloc.go:1161:19: Add not declared by package unsafe
+../../../go/go-dists/go1.18.2/src/runtime/mfinal.go:198:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/mgcscavenge.go:267:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/plugin.go:79:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/plugin.go:83:11: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/stack.go:1361:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/swapper.go:17:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/type.go:710:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:102:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:139:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:260:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:394:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:458:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:467:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:475:4: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:104:8: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:229:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:231:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:233:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:270:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/reflectlite/value.go:436:7: undeclared name: any
+../../../go/go-dists/go1.18.2/src/errors/wrap.go:78:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/errors/wrap.go:96:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/atomic/value.go:17:4: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/atomic/value.go:28:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/atomic/value.go:47:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/atomic/value.go:90:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/atomic/value.go:90:36: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/atomic/value.go:135:41: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/atomic/value.go:182:9: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:51:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:64:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:70:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:96:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:103:24: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:103:36: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:128:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:137:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:170:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:193:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:200:38: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:200:51: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:240:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:240:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:269:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:269:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:293:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:297:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:320:39: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/pool.go:56:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/pool.go:61:10: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/pool.go:83:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/pool.go:90:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/pool.go:124:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/pool.go:153:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:80:36: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:112:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:147:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:228:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:258:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:271:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:133:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:246:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:262:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:304:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/map.go:369:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:101:5: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:134:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sync/poolqueue.go:169:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/deepequal.go:228:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/swapper.go:17:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:1424:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:107:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:144:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:1429:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:1433:41: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:2959:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:3486:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:3523:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:3531:4: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:1468:11: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:1886:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:1932:11: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:2012:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:2370:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:2698:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:2918:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/type.go:3105:37: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:109:8: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:1170:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:1172:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:1174:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:1452:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:3056:7: undeclared name: any
+../../../go/go-dists/go1.18.2/src/reflect/value.go:3387:6: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sort/slice.go:16:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sort/slice.go:29:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/sort/slice.go:37:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/io/io.go:600:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/time/sleep.go:17:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/time/sleep.go:18:11: undeclared name: any
+../../../go/go-dists/go1.18.2/src/time/sleep.go:44:59: undeclared name: any
+../../../go/go-dists/go1.18.2/src/time/sleep.go:44:78: undeclared name: any
+../../../go/go-dists/go1.18.2/src/time/sleep.go:143:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/time/sleep.go:175:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/poll/splice_linux.go:176:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/testlog/log.go:34:5: cannot compare logger.Load() != nil (operator != not defined for invalid type)
+../../../go/go-dists/go1.18.2/src/io/fs/fs.go:156:8: undeclared name: any
+../../../go/go-dists/go1.18.2/src/os/dir_unix.go:30:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/os/exec.go:167:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/os/exec.go:176:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/os/exec_posix.go:90:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/os/exec_posix.go:94:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/os/types_unix.go:26:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/errors.go:17:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:109:6: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:132:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:202:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:212:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:217:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:230:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:241:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:247:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:262:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:273:19: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:279:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:536:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:634:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:889:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:974:42: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:1149:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/print.go:1164:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:63:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:69:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:80:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:99:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:105:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:113:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:121:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:130:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:141:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:379:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:953:37: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:1070:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:1181:41: undeclared name: any
+../../../go/go-dists/go1.18.2/src/fmt/scan.go:12:2: "reflect" imported but not used
+../../../go/go-dists/go1.18.2/src/context/context.go:153:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:153:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:185:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:185:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:351:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:351:36: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:523:41: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:540:11: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:546:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:562:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:562:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:569:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/context/context.go:569:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/binary/binary.go:162:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/binary/binary.go:271:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/binary/binary.go:395:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/binary/binary.go:699:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:96:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:170:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:401:37: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:843:48: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:1040:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:1057:42: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:1083:52: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:1134:42: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/encode.go:158:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/encode.go:175:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/encode.go:297:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/encode.go:322:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/scanner.go:86:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:49:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:201:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:291:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:1058:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:1084:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/decode.go:1100:3: key declared but not used
+../../../go/go-dists/go1.18.2/src/encoding/json/encode.go:314:40: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:374:11: cannot use nil (untyped nil value) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:384:11: cannot use Delim('[') (constant 91 of type Delim) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:394:11: cannot use Delim(']') (constant 93 of type Delim) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:403:11: cannot use Delim('{') (constant 123 of type Delim) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:413:11: cannot use Delim('}') (constant 125 of type Delim) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:444:13: cannot use nil (untyped nil value) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:447:12: cannot use x (variable of type string) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:455:10: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:457:12: cannot use nil (untyped nil value) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/encoding/json/stream.go:480:9: cannot use nil (untyped nil value) as Token value in return statement
+../../../go/go-dists/go1.18.2/src/go/token/serialize.go:22:36: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/token/serialize.go:50:37: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/scanner/scanner.go:158:59: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/scope.go:79:7: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/scope.go:80:7: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/scope.go:81:7: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/print.go:39:49: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/print.go:43:49: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/print.go:73:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/print.go:81:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/print.go:128:49: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/resolve.go:25:67: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/print.go:49:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/ast/scope.go:93:2: name declared but not used
+../../../go/go-dists/go1.18.2/src/go/parser/interface.go:25:38: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/parser/interface.go:85:58: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/parser/interface.go:191:62: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/parser/parser.go:85:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/parser/resolver.go:73:49: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/parser/resolver.go:77:51: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/parser/resolver.go:123:39: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/parser/resolver.go:78:6: i declared but not used
+../../../go/go-dists/go1.18.2/src/go/parser/interface.go:10:2: "bytes" imported but not used
+../../../go/go-dists/go1.18.2/src/go/parser/interface.go:14:2: "io" imported but not used
+../../../go/go-dists/go1.18.2/src/container/heap/heap.go:34:9: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/heap/heap.go:35:8: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/heap/heap.go:52:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/heap/heap.go:60:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/heap/heap.go:69:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/constant/value.go:582:19: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/constant/value.go:613:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/regexp/backtrack.go:50:11: invalid operation: bitStatePool.Get() (value with invalid type) is not an interface
+../../../go/go-dists/go1.18.2/src/go/types/check.go:91:11: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/check.go:80:67: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:67:54: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:77:84: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:130:67: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:139:51: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:209:98: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:218:84: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:222:88: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:226:72: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:230:88: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:234:87: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/expr.go:1659:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/initorder.go:307:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/initorder.go:311:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/stmt.go:196:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/stmt.go:230:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/conversions.go:209:40: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/expr.go:1471:24: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/instantiate.go:166:40: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/operand.go:317:40: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/subst.go:199:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/subst.go:205:39: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/types/errors.go:10:2: "bytes" imported but not used
+../../../go/go-dists/go1.18.2/src/os/exec/exec.go:219:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/parse/lex.go:193:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/parse/parse.go:27:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/parse/parse.go:62:74: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/parse/parse.go:131:43: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/parse/parse.go:161:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/parse/parse.go:221:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/parse/parse.go:243:104: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/funcs.go:34:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/exec.go:129:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/exec.go:182:68: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/exec.go:200:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/exec.go:204:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/exec.go:314:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/exec.go:1026:39: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/funcs.go:630:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/funcs.go:721:24: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/funcs.go:727:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/template/funcs.go:736:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/go/doc/doc.go:160:86: undeclared name: any
+../../../go/go-dists/go1.18.2/src/text/scanner/scanner.go:343:49: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:201:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:210:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:219:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:227:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:233:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:239:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:245:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:252:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:259:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:338:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:347:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:356:19: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:364:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:370:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:376:19: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:382:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:389:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/log/log.go:396:19: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:125:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:155:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:176:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:197:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:218:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:235:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:256:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:277:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:308:8: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:898:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/flag/flag.go:906:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/nettrace/nettrace.go:33:24: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/singleflight/singleflight.go:17:6: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/singleflight/singleflight.go:37:9: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/singleflight/singleflight.go:47:43: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/singleflight/singleflight.go:47:59: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/singleflight/singleflight.go:71:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/singleflight/singleflight.go:94:56: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/intern/intern.go:24:9: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/intern/intern.go:32:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/intern/intern.go:39:9: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/intern/intern.go:46:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/intern/intern.go:82:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/netip/netip.go:348:32: cannot convert slice (variable of type []byte) to *[4]byte
+../../../go/go-dists/go1.18.2/src/net/netip/netip.go:1021:31: cannot convert b (variable of type []byte) to *[4]byte
+../../../go/go-dists/go1.18.2/src/runtime/cgo/handle.go:108:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/cgo/handle.go:121:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/lookup.go:268:37: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/lookup.go:268:42: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/lookup.go:380:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/lookup.go:394:37: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/lookup.go:317:61: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/lookup.go:395:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/list/list.go:27:8: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/list/list.go:103:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/list/list.go:134:35: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/list/list.go:144:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/list/list.go:150:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/list/list.go:158:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/container/list/list.go:169:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/crypto.go:162:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/crypto.go:176:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/crypto.go:223:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/embed/embed.go:235:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/sha512/sha512.go:345:25: cannot convert sum[:] (value of type []byte) to *[48]byte
+../../../go/go-dists/go1.18.2/src/crypto/sha512/sha512.go:355:25: cannot convert sum[:] (value of type []byte) to *[28]byte
+../../../go/go-dists/go1.18.2/src/crypto/sha512/sha512.go:365:25: cannot convert sum[:] (value of type []byte) to *[32]byte
+../../../go/go-dists/go1.18.2/src/encoding/asn1/asn1.go:1089:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/asn1/asn1.go:1112:40: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/asn1/marshal.go:733:18: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/asn1/marshal.go:739:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/encoding/asn1/asn1.go:698:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/ecdsa/ecdsa.go:68:12: invalid operation: x (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/ecdsa/ecdsa.go:88:9: cannot use &priv.PublicKey (value of type *PublicKey) as crypto.PublicKey value in return statement
+../../../go/go-dists/go1.18.2/src/crypto/ecdsa/ecdsa.go:95:12: invalid operation: x (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/ed25519/ed25519.go:45:12: invalid operation: x (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/ed25519/ed25519.go:59:9: cannot use PublicKey(publicKey) (value of type PublicKey) as crypto.PublicKey value in return statement
+../../../go/go-dists/go1.18.2/src/crypto/ed25519/ed25519.go:64:12: invalid operation: x (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/rsa/rsa.go:58:12: invalid operation: x (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/rsa/rsa.go:112:9: cannot use &priv.PublicKey (value of type *PublicKey) as crypto.PublicKey value in return statement
+../../../go/go-dists/go1.18.2/src/crypto/rsa/rsa.go:118:12: invalid operation: x (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/rsa/rsa.go:156:13: cannot convert nil (untyped nil value) to crypto.DecrypterOpts
+../../../go/go-dists/go1.18.2/src/crypto/rsa/rsa.go:160:17: opts (variable of type crypto.DecrypterOpts) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/sha256/sha256.go:268:25: cannot convert sum[:] (value of type []byte) to *[28]byte
+../../../go/go-dists/go1.18.2/src/crypto/x509/pkix/pkix.go:101:8: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:639:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/parser.go:239:71: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/pkcs8.go:33:44: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/pkcs8.go:88:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/verify.go:503:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/verify.go:504:36: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/verify.go:505:22: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:55:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:72:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:117:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:817:88: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:1726:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:1360:36: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:1486:81: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:1651:54: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:1863:82: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/verify.go:612:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/verify.go:625:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/verify.go:639:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/verify.go:652:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:855:16: publicKey (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/x509/pkcs8.go:8:2: "crypto/ecdsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/x509/pkcs8.go:10:2: "crypto/rsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:12:2: "crypto/ed25519" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/x509/x509.go:11:2: "crypto/ecdsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/cipher_suites.go:143:43: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/cipher_suites.go:415:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/cipher_suites.go:407:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/cipher_suites.go:402:45: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/common.go:1469:41: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:168:10: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:174:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:200:62: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:938:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:1014:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:25:17: invalid operation: pubkey (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:33:17: invalid operation: pubkey (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:41:17: invalid operation: pubkey (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:49:17: invalid operation: pubkey (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:132:9: pub (variable of type crypto.PublicKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:173:14: invalid operation: cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:254:9: cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:262:16: invalid operation: cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/common.go:1154:18: invalid operation: c.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/common.go:1199:17: invalid operation: c.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:268:1: missing return
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:346:2: explicitNonceLen declared but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/conn.go:498:6: dst declared but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_client.go:599:14: invalid operation: chainToSend.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_client.go:660:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_client.go:660:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_client_tls13.go:597:14: invalid operation: cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server.go:252:17: invalid operation: hs.cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server.go:265:17: invalid operation: hs.cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server.go:684:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server.go:684:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server_tls13.go:622:14: invalid operation: hs.cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server_tls13.go:624:13: invalid operation: hs.cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/key_agreement.go:58:14: invalid operation: cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/key_agreement.go:199:14: invalid operation: cert.PrivateKey (variable of type crypto.PrivateKey) is not an interface
+../../../go/go-dists/go1.18.2/src/crypto/tls/tls.go:341:10: cannot use key (variable of type *rsa.PrivateKey) as crypto.PrivateKey value in return statement
+../../../go/go-dists/go1.18.2/src/crypto/tls/tls.go:352:10: cannot use key (variable of type *ecdsa.PrivateKey) as crypto.PrivateKey value in return statement
+../../../go/go-dists/go1.18.2/src/crypto/tls/tls.go:355:9: cannot use nil (untyped nil value) as crypto.PrivateKey value in return statement
+../../../go/go-dists/go1.18.2/src/crypto/tls/auth.go:12:2: "crypto/elliptic" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/common.go:16:2: "crypto/rsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/common.go:12:2: "crypto/ecdsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/common.go:14:2: "crypto/elliptic" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/common.go:13:2: "crypto/ed25519" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_client.go:12:2: "crypto/ed25519" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_client.go:11:2: "crypto/ecdsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server.go:10:2: "crypto/ecdsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server.go:11:2: "crypto/ed25519" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/handshake_server.go:12:2: "crypto/rsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/tls.go:19:2: "crypto/ed25519" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/tls.go:20:2: "crypto/rsa" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/tls.go:15:2: "bytes" imported but not used
+../../../go/go-dists/go1.18.2/src/crypto/tls/tls.go:18:2: "crypto/ecdsa" imported but not used
+../../../go/go-dists/go1.18.2/src/net/textproto/textproto.go:114:43: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/textproto/writer.go:29:52: undeclared name: any
+../../../go/go-dists/go1.18.2/src/mime/type.go:26:20: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/httptrace/trace.go:25:14: invalid operation: ctx.Value((clientEventContextKey literal)) (value with invalid type) is not an interface
+../../../go/go-dists/go1.18.2/src/net/http/httptrace/trace.go:53:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/h2_bundle.go:1052:9: cannot use (func() interface{} literal) (value of type func() interface{}) as func() invalid type value in struct literal
+../../../go/go-dists/go1.18.2/src/net/http/header.go:160:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/server.go:801:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/server.go:3193:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/server.go:3204:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/transfer.go:76:26: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/transfer.go:484:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/transfer.go:812:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/transport.go:2677:57: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/server.go:3367:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/net/http/transfer.go:936:2: hdr declared but not used
+../../../go/go-dists/go1.18.2/src/runtime/trace/annotation.go:101:65: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/example.go:67:110: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/fuzz.go:95:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:1634:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:745:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:746:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:750:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:751:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:753:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:754:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:757:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:759:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:924:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:931:48: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:938:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:945:48: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:908:30: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:918:46: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:952:31: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:959:47: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/fuzz.go:153:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/fuzz.go:211:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:455:66: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:469:65: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:682:65: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:1173:57: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:1586:40: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/fuzz.go:154:15: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/fuzz.go:647:23: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/testing.go:1372:23: undeclared name: any
+compiles/compiles_modules_test.go:37:18: cannot use t (variable of type *testing.T) as require.TestingT value in argument to require.NoError: wrong type for method Errorf (have func(format string, args ...invalid type), want func(format string, args ...interface{}))
+../../../go/go-dists/go1.18.2/src/internal/fuzz/encoding.go:23:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/encoding.go:101:39: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/encoding.go:127:37: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/encoding.go:313:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/encoding.go:340:34: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:473:11: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/queue.go:19:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:1002:59: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:1015:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:1052:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:1061:16: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:1061:24: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/mutator.go:56:33: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/queue.go:42:27: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/queue.go:51:28: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/queue.go:62:25: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/worker.go:841:67: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/worker.go:915:24: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/worker.go:1142:70: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/encoding.go:112:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:701:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/fuzz.go:988:14: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/mutator.go:64:2: maxPerVal declared but not used
+../../../go/go-dists/go1.18.2/src/internal/fuzz/queue.go:33:21: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/worker.go:657:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/worker.go:729:17: undeclared name: any
+../../../go/go-dists/go1.18.2/src/internal/fuzz/worker.go:872:2: tryMinimized declared but not used
+../../../go/go-dists/go1.18.2/src/internal/fuzz/encoding.go:15:2: "unicode/utf8" imported but not used
+../../../go/go-dists/go1.18.2/src/internal/fuzz/mutator.go:9:2: "fmt" imported but not used
+../../../go/go-dists/go1.18.2/src/runtime/pprof/pprof.go:137:12: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/pprof/pprof.go:280:29: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/pprof/pprof.go:306:32: undeclared name: any
+../../../go/go-dists/go1.18.2/src/runtime/pprof/pprof.go:220:13: undeclared name: any
+../../../go/go-dists/go1.18.2/src/testing/internal/testdeps/deps.go:189:36: undeclared name: any
+Finished compiles
+Check(s) produced output: [compiles]
