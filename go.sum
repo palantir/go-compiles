@@ -4,7 +4,6 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/inconshreveable/mousetrap v1.0.0 h1:Z8tu5sraLXCXIcARxBp/8cbvlwVa7Z1NHg9XEKhtSvM=
 github.com/inconshreveable/mousetrap v1.0.0/go.mod h1:PxqpIevigyE2G7u3NXJIT2ANytuPF1OarO4DADm73n8=
-github.com/nmiyake/pkg v1.0.0 h1:HLaVYtHDMpgvKKudovOE4lFaiudQNL+8Imr89hWrSZg=
 github.com/nmiyake/pkg v1.0.0/go.mod h1:078BHtQj5Tk8Im6EpMHR0/Stp79lwL3FIRiGaC9hTDM=
 github.com/nmiyake/pkg/dirs v1.0.2/go.mod h1:fVEsJ8Y8gFb14mbXq4iFQgzR19mMLEKA/lX3Y7Ccl3w=
 github.com/nmiyake/pkg/dirs v1.1.0 h1:qyTzK3bTqAJfekQcU6vlydM/YRxhHsv6MiRFEwTkJcw=
