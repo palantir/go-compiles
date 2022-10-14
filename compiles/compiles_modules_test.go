@@ -132,7 +132,7 @@ import _ "github.com/my-org/my-project/foo"`,
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo.go" + `:3:9: no result values expected`,
+					baseDir + "/foo/foo.go" + ":3:9: too many return values\n\thave (string)\n\twant ()",
 					baseDir + "/bar/bar.go" + `:2:8: "fmt" imported but not used`,
 					"",
 				}
