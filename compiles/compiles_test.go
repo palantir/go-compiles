@@ -140,7 +140,7 @@ import "fmt"`,
 			func(baseDir string) string {
 				lines := []string{
 					baseDir + "/foo/foo.go" + ":3:9: too many return values\n\thave (string)\n\twant ()",
-					baseDir + "/bar/bar.go" + `:2:8: "fmt" imported but not used`,
+					baseDir + "/bar/bar.go" + `:2:8: "fmt" imported and not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -176,7 +176,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared but not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -212,7 +212,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared but not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
