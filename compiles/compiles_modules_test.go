@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:build go1.11
-// +build go1.11
+//go:build go1.20
+// +build go1.20
 
 package compiles_test
 
@@ -133,7 +133,7 @@ import _ "github.com/my-org/my-project/foo"`,
 			func(baseDir string) string {
 				lines := []string{
 					baseDir + "/foo/foo.go" + ":3:9: too many return values\n\thave (string)\n\twant ()",
-					baseDir + "/bar/bar.go" + `:2:8: "fmt" imported but not used`,
+					baseDir + "/bar/bar.go" + `:2:8: "fmt" imported and not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -170,7 +170,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared but not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -207,7 +207,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared but not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")

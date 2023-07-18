@@ -1,4 +1,4 @@
-// Copyright 2016 Palantir Technologies, Inc.
+// Copyright 2023 Palantir Technologies, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,31 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:build go1.20
-// +build go1.20
+//go:build !go1.20
+// +build !go1.20
 
 package compiles_test
 
 import (
 	"bytes"
 	"fmt"
+	"io/ioutil"
 	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/nmiyake/pkg/dirs"
 	"github.com/nmiyake/pkg/gofiles"
 	"github.com/palantir/go-compiles/compiles"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-func TestCompilesPassCases(t *testing.T) {
-	// set GOFLAGS to blank for test so that it does not use vendor mode
-	origValue := os.Getenv("GOFLAGS")
-	_ = os.Setenv("GOFLAGS", "")
-	defer func() {
-		_ = os.Setenv("GOFLAGS", origValue)
-	}()
+func TestGoModulesCompilesPassCases(t *testing.T) {
+	tmpDir, cleanup, err := dirs.TempDir("", "")
+	require.NoError(t, err)
+	defer cleanup()
+
+	wd, err := os.Getwd()
+	require.NoError(t, err)
 
 	for i, tc := range []struct {
 		files []gofiles.GoFileSpec
@@ -45,73 +48,58 @@ func TestCompilesPassCases(t *testing.T) {
 			files: []gofiles.GoFileSpec{
 				{
 					RelPath: "go.mod",
-					Src: `module github.com/foo
-go 1.16
-
-require github.com/inner v1.0.0
-
-replace github.com/inner => ./inner
+					Src: `module github.com/my-org/my-project
 `,
 				},
 				{
-					RelPath: "foo.go",
+					RelPath: "foo/foo.go",
 					Src: `package foo
-import "github.com/inner"
+import "fmt"
 func Foo() {
-	inner.Inner()
+	fmt.Println()
 }`,
 				},
 				{
-					RelPath: "foo_test.go",
+					RelPath: "foo/foo_test.go",
 					Src: `package foo_test
 import "testing"
-import "github.com/inner"
+import "github.com/my-org/my-project/foo"
 func TestFoo(t *testing.T) {
-	inner.Inner()
+	foo.Foo()
 }`,
-				},
-				{
-					RelPath: "inner/go.mod",
-					Src:     `module github.com/inner`,
-				},
-				{
-					RelPath: "inner/inner.go",
-					Src: `package inner
-func Inner() {}`,
-				},
-				{
-					RelPath: "vendor/modules.txt",
-					Src: `# github.com/inner v1.0.0 => ./inner
-## explicit
-github.com/inner
-# github.com/inner => ./inner
-`,
-				},
-				{
-					RelPath: "vendor/github.com/inner/go.mod",
-					Src:     `module github.com/inner`,
-				},
-				{
-					RelPath: "vendor/github.com/inner/inner.go",
-					Src: `package inner
-func Inner() {}`,
 				},
 			},
 		},
 	} {
-		projectDir := t.TempDir()
+		func() {
+			defer func() {
+				require.NoError(t, os.Chdir(wd))
+			}()
 
-		buf := bytes.Buffer{}
-		out, err := gofiles.Write(projectDir, tc.files)
-		_ = out
-		require.NoError(t, err)
+			projectDir, err := ioutil.TempDir(tmpDir, "")
+			require.NoError(t, err)
 
-		err = compiles.RunInDir([]string{"."}, projectDir, &buf)
-		require.NoError(t, err, "Case %d: %v", i, buf.String())
+			require.NoError(t, os.Chdir(projectDir))
+
+			buf := bytes.Buffer{}
+			_, err = gofiles.Write(projectDir, tc.files)
+			require.NoError(t, err)
+
+			pkgPath := "./foo"
+			err = compiles.Run([]string{pkgPath}, &buf)
+			require.NoError(t, err, "Case %d: %v", i, buf.String())
+		}()
 	}
 }
 
-func TestCompilesErrorCases(t *testing.T) {
+func TestGoModulesCompilesErrorCases(t *testing.T) {
+	tmpDir, cleanup, err := dirs.TempDir("", "")
+	require.NoError(t, err)
+	defer cleanup()
+
+	wd, err := os.Getwd()
+	require.NoError(t, err)
+
 	for i, tc := range []struct {
 		files     []gofiles.GoFileSpec
 		inputPkgs []string
@@ -121,7 +109,8 @@ func TestCompilesErrorCases(t *testing.T) {
 			[]gofiles.GoFileSpec{
 				{
 					RelPath: "go.mod",
-					Src:     "module github.com/go-compiles-tester",
+					Src: `module github.com/my-org/my-project
+`,
 				},
 				{
 					RelPath: "foo/foo.go",
@@ -133,7 +122,8 @@ func Foo() {
 				{
 					RelPath: "bar/bar.go",
 					Src: `package bar
-import "fmt"`,
+import "fmt"
+import _ "github.com/my-org/my-project/foo"`,
 				},
 			},
 			[]string{
@@ -143,7 +133,7 @@ import "fmt"`,
 			func(baseDir string) string {
 				lines := []string{
 					baseDir + "/foo/foo.go" + ":3:9: too many return values\n\thave (string)\n\twant ()",
-					baseDir + "/bar/bar.go" + `:2:8: "fmt" imported and not used`,
+					baseDir + "/bar/bar.go" + `:2:8: "fmt" imported but not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -153,7 +143,8 @@ import "fmt"`,
 			[]gofiles.GoFileSpec{
 				{
 					RelPath: "go.mod",
-					Src:     "module github.com/go-compiles-tester",
+					Src: `module github.com/my-org/my-project
+`,
 				},
 				{
 					RelPath: "foo/foo.go",
@@ -167,7 +158,7 @@ func Foo() string {
 					Src: `package foo_test
 import (
 	"testing"
-	"github.com/go-compiles-tester/foo"
+	"github.com/my-org/my-project/foo"
 )
 func TestFoo(t *testing.T) {
 	bar := foo.Foo()
@@ -179,7 +170,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: bar declared but not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -189,7 +180,8 @@ func TestFoo(t *testing.T) {
 			[]gofiles.GoFileSpec{
 				{
 					RelPath: "go.mod",
-					Src:     "module github.com/go-compiles-tester",
+					Src: `module github.com/my-org/my-project
+`,
 				},
 				{
 					RelPath: "foo/foo.go",
@@ -203,7 +195,7 @@ func Foo() string {
 					Src: `package foo_test
 import (
 	"testing"
-	"github.com/go-compiles-tester/foo"
+	"github.com/my-org/my-project/foo"
 )
 func TestFoo(t *testing.T) {
 	bar := foo.Foo()
@@ -215,7 +207,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: bar declared but not used`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -225,7 +217,8 @@ func TestFoo(t *testing.T) {
 			[]gofiles.GoFileSpec{
 				{
 					RelPath: "go.mod",
-					Src:     "module github.com/go-compiles-tester",
+					Src: `module github.com/my-org/my-project
+`,
 				},
 				{
 					RelPath: "foo/foo.go",
@@ -249,18 +242,31 @@ func TestFoo(t *testing.T) {
 			},
 		},
 	} {
-		projectDir := t.TempDir()
+		func() {
+			defer func() {
+				require.NoError(t, os.Chdir(wd))
+			}()
 
-		buf := bytes.Buffer{}
-		_, err := gofiles.Write(projectDir, tc.files)
-		require.NoError(t, err)
+			projectDir, err := ioutil.TempDir(tmpDir, "")
+			require.NoError(t, err)
 
-		var pkgs []string
-		for _, inputPkg := range tc.inputPkgs {
-			pkgs = append(pkgs, "./"+inputPkg)
-		}
-		err = compiles.RunInDir(pkgs, projectDir, &buf)
-		require.Error(t, err, fmt.Sprintf("Case %d", i))
-		assert.Equal(t, tc.want(projectDir), buf.String(), "Case %d", i)
+			buf := bytes.Buffer{}
+			_, err = gofiles.Write(projectDir, tc.files)
+			require.NoError(t, err)
+
+			require.NoError(t, os.Chdir(projectDir))
+
+			var pkgs []string
+			for _, inputPkg := range tc.inputPkgs {
+				pkgs = append(pkgs, "./"+inputPkg)
+			}
+			err = compiles.Run(pkgs, &buf)
+			require.Error(t, err, fmt.Sprintf("Case %d", i))
+
+			projectDirEvalSymLinks, err := filepath.EvalSymlinks(projectDir)
+			require.NoError(t, err)
+
+			assert.Equal(t, tc.want(projectDirEvalSymLinks), buf.String(), "Case %d", i)
+		}()
 	}
 }
