@@ -1,6 +1,6 @@
 module github.com/palantir/go-compiles
 
-go 1.21
+go 1.23.0
 
 require (
 	github.com/nmiyake/pkg/dirs v1.1.0
