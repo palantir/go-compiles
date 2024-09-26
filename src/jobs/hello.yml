@@ -2,6 +2,9 @@ description: >
   Sample description
 # What will this job do?
 
+docker:
+  - image: cimg/base:current
+
 parameters:
   to:
     type: string
