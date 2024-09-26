@@ -1,5 +1,0 @@
-type: fix
-fix:
-  description: Update golang.org/x/tools module
-  links:
-  - https://github.com/palantir/go-compiles/pull/46
