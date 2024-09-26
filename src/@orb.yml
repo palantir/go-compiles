@@ -2,7 +2,7 @@ version: 2.1
 
 description: >
   Currently, this repository exists only for testing and development purposes.
-  
+
   The primary purpose of this repository and orb is to test the setup of an orb
   development environment.
 # What will your orb allow users to accomplish?
