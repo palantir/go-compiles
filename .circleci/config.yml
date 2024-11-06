@@ -121,11 +121,8 @@ orbs:
           setup_steps:
             default:
               - checkout
-              - common_delete_unrelated_tags
-              - common_add_java_home_bin_to_path
             description: |
-              The steps to run before caches are set up. The default value checks out the repository, deletes unrelated tags,
-              and sets up the JAVA_HOME environment variable.
+              The steps to run before caches are set up. The default value checks out the repository.
             type: steps
           steps:
             default: [ ]
