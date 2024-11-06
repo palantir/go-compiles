@@ -5,44 +5,414 @@
 version: 2.1
 
 orbs:
-  go: palantir/go@0.0.29
-  godel: palantir/godel@0.0.29
+  go-jobs:
+    version: 2.1
+    description: |
+      Orb that defines jobs to use for running go workflows.
+      
+      Makes use of the palantir/go-dist and palantir/godel orbs
+      to define jobs that can be used by CircleCI workflows to execute standard
+      builds for projects that build go libraries, go distributions, and other kinds
+      of projects.
+    display:
+      home_url: https://github.com/palantir
+      source_url: https://github.com/palantir
+    orbs:
+      go-dist: palantir/go-dist@0.6.0
+      godel: palantir/godel@0.8.0
+    commands:
+      run_godel_steps:
+        description: |
+          Runs the provided steps with go caches, a go distribution, and godel caches all set up.
+        parameters:
+          build_cache_key_prefix:
+            default: v2
+            description: |
+              The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
+              invalidate the cache.
+            type: string
+          build_cache_location:
+            default: ~/.cache/go-build
+            description: |
+              The location of the go build cache directory.
+            type: string
+          go_command:
+            default: go
+            description: |
+              The command to execute to run "go".
+            type: string
+          go_dist_download_url_prefix:
+            default: https://golang.org/dl/
+            description: |
+              The URL prefix for downloading a go distribution. Used if the script needs to download a Go distribution. The URL
+              that is used for downloads is ${go-dist-download-url-prefix}${go-version}.${go-os-arch}.tar.gz. The default value
+              uses the official public Golang site, but this value can be changed to use alternate download URLs such as
+              internal mirrors.
+            type: string
+          go_dists_cache_dir:
+            default: /go/go-dists-cache
+            description: |
+              The directory that acts as a cache for go distributions. If non-empty, if the command needs a particular Go
+              distribution and it is not in the ${go-dists-dir} directory, it is checked for in this directory. If it exists, it
+              is copied to the distributions directory. If the script downloads the distribution, it places it in this directory
+              as well as the ${go-dists-dir} directory. The names of the distribution directories in this directory are the go
+              version for the distribution. If this value is non-empty, it is saved and restored as part of CircleCI caching if
+              the "go_version" parameter is non-empty.
+            type: string
+          go_dists_cache_key_prefix:
+            default: v1
+            description: |
+              The prefix for the go distributions cache key. Is generally considered immutable, but the value can be changed to
+              intentionally invalidate the cache.
+            type: string
+          go_dists_dir:
+            default: /go/go-dists
+            description: |
+              The directory in which go distributions are stored. The command ensures that the "go" directory in this directory
+              is the Go distribution directory for the desired version (or a symlink to that directory). This directory is also
+              used to store full Go distributions, where the name of the Go distribution directory is the Go version (for
+              example, "go1.23.1").
+            type: string
+          go_os_arch:
+            default: linux-amd64
+            description: |
+              The OS/Architecture for the distribution.
+            type: string
+          go_os_archs_to_build:
+            default: ""
+            description: |
+              The OS/Architecture combinations for which the standard library should be built and installed. Specified as
+              "${GOOS}-${GOARCH}" -- for example, "linux-amd64". Can be comma-separated to specify multiple OS/Architecture
+              combinations -- for example, "linux-amd64,darwin-arm64". If blank, uses the OS/Architecture of the environment.
+            type: string
+          go_sum_file:
+            default: go.sum
+            description: |
+              The path to the "go.sum" file. The checksum for this file is used as part of the cache key.
+            type: string
+          go_version:
+            default: ""
+            description: |
+              If non-empty, determines the value of the go distribution that is used as the toolchain. If empty, assumes that
+              the "go" is already available as an executable in PATH. This should be the full Go version (for example,
+              "go1.23.1", "go1.23rc1", etc.)
+            type: string
+          godel_cache_key_prefix:
+            default: v1
+            description: |
+              The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
+              invalidate the cache.
+            type: string
+          godel_cache_location:
+            default: ~/.godel
+            description: |
+              The location of the Go cache directory.
+            type: string
+          mod_cache_key_prefix:
+            default: v1
+            description: |
+              The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
+              invalidate the cache.
+            type: string
+          mod_cache_location:
+            default: /go/pkg/mod
+            description: |
+              The location of the go module cache directory.
+            type: string
+          setup_steps:
+            default:
+              - checkout
+              - common_delete_unrelated_tags
+              - common_add_java_home_bin_to_path
+            description: |
+              The steps to run before caches are set up. The default value checks out the repository, deletes unrelated tags,
+              and sets up the JAVA_HOME environment variable.
+            type: steps
+          steps:
+            default: [ ]
+            description: |
+              The steps to run after caches are restored but before they are persisted.
+            type: steps
+        steps:
+          - go-dist/with_go_caches:
+              build_cache_key_prefix: << parameters.build_cache_key_prefix >>-<< parameters.go_os_archs_to_build >>
+              build_cache_location: << parameters.build_cache_location >>
+              go_command: << parameters.go_command >>
+              go_sum_file: << parameters.go_sum_file >>
+              mod_cache_key_prefix: << parameters.mod_cache_key_prefix >>
+              mod_cache_location: << parameters.mod_cache_location >>
+              setup_steps:
+                - steps: << parameters.setup_steps >>
+                - go-dist/setup_go_dist:
+                    cache_key_prefix: << parameters.go_dists_cache_key_prefix >>
+                    custom_cache_restore_steps:
+                      - cache/restore:
+                          keys: |
+                            go-dists-<< parameters.go_dists_cache_key_prefix >>-<< parameters.go_version >>-<< parameters.go_os_arch >>
+                          step_name: 'go-jobs/run_godel_steps: Restore go distribution cache'
+                    custom_cache_restore_steps_enabled: true
+                    custom_cache_save_steps:
+                      - cache/save:
+                          key: go-dists-<< parameters.go_dists_cache_key_prefix >>-<< parameters.go_version >>-<< parameters.go_os_arch >>
+                          paths: |
+                            << parameters.go_dists_cache_dir >>
+                          step_name: 'go-jobs/run_godel_steps: Save go distribution cache'
+                    custom_cache_save_steps_enabled: true
+                    go_dist_download_url_prefix: << parameters.go_dist_download_url_prefix >>
+                    go_dists_cache_dir: << parameters.go_dists_cache_dir >>
+                    go_dists_dir: << parameters.go_dists_dir >>
+                    go_os_arch: << parameters.go_os_arch >>
+                    go_version: << parameters.go_version >>
+              steps:
+                - go-dist/install_go_std:
+                    go_command: << parameters.go_command >>
+                    go_os_archs_to_build: << parameters.go_os_archs_to_build >>
+                - run:
+                    command: |
+                      "${PARAM_GO_COMMAND}" list -m
+                    environment:
+                      GOTOOLCHAIN: local
+                      PARAM_GO_COMMAND: << parameters.go_command >>
+                      PARAM_GO_DISTS_DIR: << parameters.go_dists_dir >>
+                    name: 'go-jobs/run_godel_steps: Verify that go version is compatible with project'
+                - godel/cache:
+                    cache_key_prefix: << parameters.godel_cache_key_prefix >>
+                    cache_location: << parameters.godel_cache_location >>
+                - steps: << parameters.steps >>
+    jobs:
+      circle_all:
+        description: |
+          Placeholder job used to signal that all required jobs have completed.
+        docker:
+          - image: << parameters.image >>
+        parameters:
+          image:
+            default: ""
+            description: |
+              The image to use for the executor.
+              
+              Generally, the recommendation is to use the latest version of the "busybox" image. However, this parameter does
+              not specify a default value in order to protect against consumers inadvertently getting locked in to an old
+              version.
+            type: string
+        resource_class: small
+        steps:
+          - run:
+              command: echo "All required jobs finished successfully"
+              name: All required jobs finished successfully
+      godel_verify:
+        description: |
+          Job that runs "./godelw verify" for a repository.
+        environment:
+          PARAM_DEBUG_ORB: << parameters.enable_debug_orb >>
+        executor: << parameters.executor >>
+        parameters:
+          build_cache_key_prefix:
+            default: v2
+            description: |
+              The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
+              invalidate the cache.
+            type: string
+          build_cache_location:
+            default: ~/.cache/go-build
+            description: |
+              The location of the go build cache directory.
+            type: string
+          enable_debug_orb:
+            default: ""
+            description: |
+              If non-empty, enables debugging output for the orb scripts.
+            type: string
+          executor:
+            description: |
+              The executor to use for the job.
+            type: executor
+          go_command:
+            default: go
+            description: |
+              The command to execute to run "go".
+            type: string
+          go_dist_download_url_prefix:
+            default: https://golang.org/dl/
+            description: |
+              The URL prefix for downloading a go distribution. Used if the script needs to download a Go distribution. The URL
+              that is used for downloads is ${go-dist-download-url-prefix}${go-version}.${go-os-arch}.tar.gz. The default value
+              uses the official public Golang site, but this value can be changed to use alternate download URLs such as
+              internal mirrors.
+            type: string
+          go_dists_cache_dir:
+            default: /go/go-dists-cache
+            description: |
+              The directory that acts as a cache for go distributions. If non-empty, if the command needs a particular Go
+              distribution and it is not in the ${go-dists-dir} directory, it is checked for in this directory. If it exists, it
+              is copied to the distributions directory. If the script downloads the distribution, it places it in this directory
+              as well as the ${go-dists-dir} directory. The names of the distribution directories in this directory are the go
+              version for the distribution. If this value is non-empty, it is saved and restored as part of CircleCI caching if
+              the "go_version" parameter is non-empty.
+            type: string
+          go_dists_cache_key_prefix:
+            default: v1
+            description: |
+              The prefix for the go distributions cache key. Is generally considered immutable, but the value can be changed to
+              intentionally invalidate the cache.
+            type: string
+          go_dists_dir:
+            default: /go/go-dists
+            description: |
+              The directory in which go distributions are stored. The command ensures that the "go" directory in this directory
+              is the Go distribution directory for the desired version (or a symlink to that directory). This directory is also
+              used to store full Go distributions, where the name of the Go distribution directory is the Go version (for
+              example, "go1.23.1").
+            type: string
+          go_os_arch:
+            default: linux-amd64
+            description: |
+              The OS/Architecture for the distribution.
+            type: string
+          go_os_archs_to_build:
+            default: ""
+            description: |
+              The OS/Architecture combinations for which the standard library should be built and installed. Specified as
+              "${GOOS}-${GOARCH}" -- for example, "linux-amd64". Can be comma-separated to specify multiple OS/Architecture
+              combinations -- for example, "linux-amd64,darwin-arm64". If blank, uses the OS/Architecture of the environment.
+            type: string
+          go_sum_file:
+            default: go.sum
+            description: |
+              The path to the "go.sum" file. The checksum for this file is used as part of the cache key.
+            type: string
+          go_version:
+            default: ""
+            description: |
+              If non-empty, determines the value of the go distribution that is used as the toolchain. If empty, assumes that
+              the "go" is already available as an executable in PATH. This should be the full Go version (for example,
+              "go1.23.1", "go1.23rc1", etc.)
+            type: string
+          godel_cache_key_prefix:
+            default: v1
+            description: |
+              The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
+              invalidate the cache.
+            type: string
+          godel_cache_location:
+            default: ~/.godel
+            description: |
+              The location of the Go cache directory.
+            type: string
+          mod_cache_key_prefix:
+            default: v1
+            description: |
+              The prefix for the cache key. Is generally considered immutable, but the value can be changed to intentionally
+              invalidate the cache.
+            type: string
+          mod_cache_location:
+            default: /go/pkg/mod
+            description: |
+              The location of the go module cache directory.
+            type: string
+          pre_steps:
+            default: [ ]
+            description: |
+              The steps to run after restoring all caches but before running the godel verify command.
+            type: steps
+          setup_steps:
+            default:
+              - default_setup_steps
+            description: |
+              The steps to run before caches are set up. The default value checks out the repository, deletes unrelated tags,
+              and sets up the JAVA_HOME environment variable.
+            type: steps
+          skip_tests:
+            default: false
+            description: |
+              If true, tests are skipped for godel verify.
+            type: boolean
+          verify_args:
+            default: --parallel=true
+            description: |
+              Arguments to pass to the "./godelw verify" command.
+            type: string
+        steps:
+          - run_godel_steps:
+              build_cache_key_prefix: << parameters.build_cache_key_prefix >>
+              build_cache_location: << parameters.build_cache_location >>
+              go_command: << parameters.go_command >>
+              go_dist_download_url_prefix: << parameters.go_dist_download_url_prefix >>
+              go_dists_cache_dir: << parameters.go_dists_cache_dir >>
+              go_dists_cache_key_prefix: << parameters.go_dists_cache_key_prefix >>
+              go_dists_dir: << parameters.go_dists_dir >>
+              go_os_arch: << parameters.go_os_arch >>
+              go_os_archs_to_build: << parameters.go_os_archs_to_build >>
+              go_sum_file: << parameters.go_sum_file >>
+              go_version: << parameters.go_version >>
+              godel_cache_key_prefix: << parameters.godel_cache_key_prefix >>
+              godel_cache_location: << parameters.godel_cache_location >>
+              mod_cache_key_prefix: << parameters.mod_cache_key_prefix >>
+              mod_cache_location: << parameters.mod_cache_location >>
+              setup_steps: << parameters.setup_steps >>
+              steps:
+                - steps: << parameters.pre_steps >>
+                - when:
+                    condition: << parameters.skip_tests >>
+                    steps:
+                      - godel/verify:
+                          test_results_location: ""
+                          verify_args: << parameters.verify_args >>
+                - unless:
+                    condition: << parameters.skip_tests >>
+                    steps:
+                      - godel/verify:
+                          verify_args: << parameters.verify_args >>
+    examples:
+      example:
+        description: |
+          Use go-jobs in workflows.
+        usage:
+          version: "2.1"
+          orbs:
+            go-jobs: palantir/go-jobs@0.17.0
+          workflows: null
 
-homepath: &homepath
-  homepath: /home/circleci
+image-version: &image-version "1.23.2-browsers"
 
-gopath: &gopath
-  gopath: /home/circleci/go
-
-executors:
-  circleci-go:
+standard-executor: &standard-executor
+  executor:
     docker:
-      - image: cimg/go:1.18-browsers
-    working_directory: /home/circleci/go/src/github.com/palantir/go-compiles
+      - image: *image-version
+    resource_class: medium
 
 jobs:
-  circle-all:
-    executor: circleci-go
-    resource_class: small
+  verify:
+    <<: *standard-executor
     steps:
-      - run: { command: echo "All required jobs finished successfully" }
+      - go-jobs/run_godel_steps:
+          steps:
+            - godel/verify
+
+# Filter that matches all tags (will run on every build).
+all-tags-filter: &all-tags-filter
+  filters: { tags: { only: /.*/ } }
+
+# Filter that matches any branch besides primary branch and ignores all tags except for release candidates
+pull-request-filter: &pull-request-filter
+  filters:
+    tags:
+      only: /.*-rc.*/
+    branches:
+      ignore:
+        - develop
+
+requires_jobs: &requires_jobs
+  - verify
 
 workflows:
   version: 2
-  verify-test:
+  verify:
     jobs:
-      - godel/verify:
-          name: verify
-          executor: circleci-go
-          <<: *homepath
-          <<: *gopath
-      - godel/test:
-          name: test
-          executor: circleci-go
-          <<: *homepath
-          <<: *gopath
-      - circle-all:
-          name: circle-all
-          requires:
-            - verify
-            - test
+      - verify:
+          <<: *all-tags-filter
+      - go-jobs/circle_all:
+          name: "circle-all"
+          image: "busybox:1.36.1"
+          requires: *requires_jobs
+          <<: *pull-request-filter
