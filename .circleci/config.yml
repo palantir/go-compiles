@@ -399,6 +399,7 @@ workflows:
     jobs:
       - go-jobs/godel_verify:
           name: "verify"
+          executor: "standard-executor"
           <<: *all-tags-filter
       - go-jobs/circle_all:
           name: "circle-all"
