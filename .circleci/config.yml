@@ -378,14 +378,6 @@ executors:
       - image: *image-version
     resource_class: medium
 
-jobs:
-  verify:
-    executor: standard-executor
-    steps:
-      - go-jobs/run_godel_steps:
-          steps:
-            - godel/verify
-
 # Filter that matches all tags (will run on every build).
 all-tags-filter: &all-tags-filter
   filters: { tags: { only: /.*/ } }
