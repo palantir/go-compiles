@@ -5,6 +5,8 @@
 version: 2.1
 
 orbs:
+  go-dist: palantir/go-dist@0.6.0
+  godel: palantir/godel@0.8.0
   go-jobs:
     version: 2.1
     description: |
@@ -17,9 +19,6 @@ orbs:
     display:
       home_url: https://github.com/palantir
       source_url: https://github.com/palantir
-    orbs:
-      go-dist: palantir/go-dist@0.6.0
-      godel: palantir/godel@0.8.0
     commands:
       run_godel_steps:
         description: |
