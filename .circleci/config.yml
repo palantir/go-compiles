@@ -7,9 +7,6 @@ version: 2.1
 orbs:
   go-jobs:
     version: 2.1
-    orbs:
-      go-dist: palantir/go-dist@0.6.0
-      godel: palantir/godel@0.8.0
     description: |
       Orb that defines jobs to use for running go workflows.
       
@@ -20,6 +17,9 @@ orbs:
     display:
       home_url: https://github.com/palantir
       source_url: https://github.com/palantir
+    orbs:
+      go-dist: palantir/go-dist@0.6.0
+      godel: palantir/godel@0.8.0
     commands:
       run_godel_steps:
         description: |
@@ -122,8 +122,11 @@ orbs:
           setup_steps:
             default:
               - checkout
+              - common_delete_unrelated_tags
+              - common_add_java_home_bin_to_path
             description: |
-              The steps to run before caches are set up. The default value checks out the repository.
+              The steps to run before caches are set up. The default value checks out the repository, deletes unrelated tags,
+              and sets up the JAVA_HOME environment variable.
             type: steps
           steps:
             default: [ ]
@@ -142,19 +145,6 @@ orbs:
                 - steps: << parameters.setup_steps >>
                 - go-dist/setup_go_dist:
                     cache_key_prefix: << parameters.go_dists_cache_key_prefix >>
-                    custom_cache_restore_steps:
-                      - cache/restore:
-                          keys: |
-                            go-dists-<< parameters.go_dists_cache_key_prefix >>-<< parameters.go_version >>-<< parameters.go_os_arch >>
-                          step_name: 'go-jobs/run_godel_steps: Restore go distribution cache'
-                    custom_cache_restore_steps_enabled: true
-                    custom_cache_save_steps:
-                      - cache/save:
-                          key: go-dists-<< parameters.go_dists_cache_key_prefix >>-<< parameters.go_version >>-<< parameters.go_os_arch >>
-                          paths: |
-                            << parameters.go_dists_cache_dir >>
-                          step_name: 'go-jobs/run_godel_steps: Save go distribution cache'
-                    custom_cache_save_steps_enabled: true
                     go_dist_download_url_prefix: << parameters.go_dist_download_url_prefix >>
                     go_dists_cache_dir: << parameters.go_dists_cache_dir >>
                     go_dists_dir: << parameters.go_dists_dir >>
