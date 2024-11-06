@@ -359,7 +359,7 @@ orbs:
             go-jobs: palantir/go-jobs@0.17.0
           workflows: null
 
-image-version: &image-version "1.23.2-browsers"
+image-version: &image-version "cimg/go:1.23.2-browsers"
 
 executors:
   standard-executor:
