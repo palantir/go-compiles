@@ -375,15 +375,15 @@ orbs:
 
 image-version: &image-version "1.23.2-browsers"
 
-standard-executor: &standard-executor
-  executor:
+executors:
+  standard-executor:
     docker:
       - image: *image-version
     resource_class: medium
 
 jobs:
   verify:
-    <<: *standard-executor
+    executor: standard-executor
     steps:
       - go-jobs/run_godel_steps:
           steps:
