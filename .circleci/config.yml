@@ -390,6 +390,13 @@ workflows:
       - go-jobs/godel_verify:
           name: "verify"
           executor: "standard-executor"
+          setup_steps:
+            - checkout
+            - run:
+                name: Set up basic permissions to allow setting up distribution
+                command: |
+                  sudo mkdir /go
+                  sudo chown -R circleci:circleci /go
           <<: *all-tags-filter
       - go-jobs/circle_all:
           name: "circle-all"
