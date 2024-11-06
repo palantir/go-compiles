@@ -9,6 +9,9 @@ orbs:
 
 image-version: &image-version "cimg/go:1.23.2-browsers"
 
+go-version: &go-version
+  go_version: go1.21.13
+
 executors:
   standard-executor:
     docker:
@@ -38,6 +41,7 @@ workflows:
       - go-jobs/godel_verify:
           name: "verify"
           executor: "standard-executor"
+          <<: *go-version
           <<: *all-tags-filter
       - go-jobs/circle_all:
           name: "circle-all"
