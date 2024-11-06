@@ -398,7 +398,8 @@ workflows:
   version: 2
   verify:
     jobs:
-      - verify:
+      - go-jobs/godel_verify:
+          name: "verify"
           <<: *all-tags-filter
       - go-jobs/circle_all:
           name: "circle-all"
