@@ -293,7 +293,7 @@ orbs:
               invalidate the cache.
             type: string
           mod_cache_location:
-            default: /go/pkg/mod
+            default: /home/circleci/go/pkg/mod
             description: |
               The location of the go module cache directory.
             type: string
@@ -305,8 +305,13 @@ orbs:
           setup_steps:
             default:
               - checkout
+              - run:
+                  command: |
+                    sudo mkdir /go
+                    sudo chown -R circleci:circleci /go
+                  name: Set up basic permissions to allow setting up distribution
             description: |
-              The steps to run before caches are set up. The default value checks out the repository.
+              The steps to run before caches are set up. The default value checks out the repository and sets up permissions.
             type: steps
           skip_tests:
             default: false
@@ -390,13 +395,6 @@ workflows:
       - go-jobs/godel_verify:
           name: "verify"
           executor: "standard-executor"
-          setup_steps:
-            - checkout
-            - run:
-                name: Set up basic permissions to allow setting up distribution
-                command: |
-                  sudo mkdir /go
-                  sudo chown -R circleci:circleci /go
           <<: *all-tags-filter
       - go-jobs/circle_all:
           name: "circle-all"
