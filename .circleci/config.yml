@@ -314,10 +314,9 @@ orbs:
             type: steps
           setup_steps:
             default:
-              - default_setup_steps
+              - checkout
             description: |
-              The steps to run before caches are set up. The default value checks out the repository, deletes unrelated tags,
-              and sets up the JAVA_HOME environment variable.
+              The steps to run before caches are set up. The default value checks out the repository.
             type: steps
           skip_tests:
             default: false
