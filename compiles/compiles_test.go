@@ -179,7 +179,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: declared and not used: bar`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -215,7 +215,7 @@ func TestFoo(t *testing.T) {
 			},
 			func(baseDir string) string {
 				lines := []string{
-					baseDir + "/foo/foo_test.go" + `:7:2: bar declared and not used`,
+					baseDir + "/foo/foo_test.go" + `:7:2: declared and not used: bar`,
 					"",
 				}
 				return strings.Join(lines, "\n")
@@ -242,7 +242,7 @@ func TestFoo(t *testing.T) {
 			func(baseDir string) string {
 				lines := []string{
 					"-: found packages bar (bar.go) and foo (foo.go) in " + baseDir + "/foo",
-					baseDir + "/foo/foo.go" + `:1:1: package foo; expected bar`,
+					baseDir + "/foo/foo.go" + `:1:1: package foo; expected package bar`,
 					"",
 				}
 				return strings.Join(lines, "\n")
