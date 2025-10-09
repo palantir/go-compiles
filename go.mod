@@ -9,7 +9,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cobra v1.10.1
 	github.com/stretchr/testify v1.11.1
-	golang.org/x/tools v0.37.0
+	golang.org/x/tools v0.38.0
 )
 
 require (
