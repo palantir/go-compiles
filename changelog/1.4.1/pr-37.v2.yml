@@ -1,5 +1,0 @@
-type: fix
-fix:
-  description: Update github.com/nmiyake/pkg modules
-  links:
-  - https://github.com/palantir/go-compiles/pull/37
