@@ -17,7 +17,7 @@ require (
 require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/nmiyake/pkg/errorstringer v1.1.0 // indirect
-	github.com/palantir/pkg v1.1.0 // indirect
+	github.com/palantir/pkg v1.2.0 // indirect
 	github.com/palantir/witchcraft-go-error v1.42.0 // indirect
 	github.com/palantir/witchcraft-go-params v1.38.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
