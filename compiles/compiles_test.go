@@ -264,3 +264,33 @@ func TestFoo(t *testing.T) {
 		assert.Equal(t, tc.want(projectDir), buf.String(), "Case %d", i)
 	}
 }
+
+func TestCompilesMainPackageWithTestSuffix(t *testing.T) {
+	for _, tc := range []struct {
+		name    string
+		src     string
+		wantErr bool
+	}{
+		{name: "valid", src: "package main\nfunc main() {}\n"},
+		{name: "undefined function", src: "package main\nfunc main() { undefinedFunction() }\n", wantErr: true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			projectDir := t.TempDir()
+			_, err := gofiles.Write(projectDir, []gofiles.GoFileSpec{
+				{RelPath: "go.mod", Src: "module example.com/repro\n"},
+				{RelPath: "cmd/smoke.test/main.go", Src: tc.src},
+			})
+			require.NoError(t, err)
+
+			var buf bytes.Buffer
+			err = compiles.RunInDir([]string{"./cmd/smoke.test"}, projectDir, &buf)
+			if tc.wantErr {
+				require.Error(t, err, "a real main package ending in .test must still be checked")
+				assert.Contains(t, buf.String(), "undefined: undefinedFunction")
+			} else {
+				require.NoError(t, err, buf.String())
+				assert.Empty(t, buf.String())
+			}
+		})
+	}
+}
