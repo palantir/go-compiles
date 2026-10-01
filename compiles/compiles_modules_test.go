@@ -12,15 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:build go1.20
-// +build go1.20
-
 package compiles_test
 
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -76,7 +72,7 @@ func TestFoo(t *testing.T) {
 				require.NoError(t, os.Chdir(wd))
 			}()
 
-			projectDir, err := ioutil.TempDir(tmpDir, "")
+			projectDir, err := os.MkdirTemp(tmpDir, "")
 			require.NoError(t, err)
 
 			require.NoError(t, os.Chdir(projectDir))
@@ -247,7 +243,7 @@ func TestFoo(t *testing.T) {
 				require.NoError(t, os.Chdir(wd))
 			}()
 
-			projectDir, err := ioutil.TempDir(tmpDir, "")
+			projectDir, err := os.MkdirTemp(tmpDir, "")
 			require.NoError(t, err)
 
 			buf := bytes.Buffer{}
