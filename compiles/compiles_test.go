@@ -13,7 +13,6 @@
 // limitations under the License.
 
 //go:build go1.20
-// +build go1.20
 
 package compiles_test
 
